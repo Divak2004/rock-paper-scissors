@@ -1,1 +1,13 @@
 console.log("Hello world!");
+console.log(getComputerChoice())
+
+function getComputerChoice() {
+    var num = Math.random()
+    if (num < 1/3) {
+        return "rock";
+    } else if (num < 2/3) {
+        return "paper";
+    } else {
+        return "scissors"
+    }
+}
