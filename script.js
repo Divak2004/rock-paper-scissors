@@ -1,10 +1,21 @@
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
 var humanScore = 0;
 var computerScore = 0;
 
-playRound(humanSelection, computerSelection);
+playGame();
+
+function playGame() {
+    for (var i = 0; i < 5; i++) {
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+
+    if (humanScore > computerScore) {
+        console.log(`You win with ${humanScore} point(s) against the computer with ${computerScore} point(s)!`);
+    } else if (humanScore < computerScore) {
+        console.log(`You lose with ${humanScore} point(s) against the computer with ${computerScore} point(s)!`);
+    } else {
+        console.log(`You and the computer draw with ${humanScore} point(s) each!`);
+    }
+}
 
 function playRound(humanChoice, computerChoice) {
     var result = ""
@@ -40,10 +51,10 @@ function getComputerChoice() {
 function getHumanChoice() {
     var choice = "";
     choice = prompt("Please enter 'rock', 'paper', or 'scissors': ");
-    choice.toLowerCase()
+    choice = choice.toLowerCase()
     while (choice != 'rock' && choice != 'paper' && choice != 'scissors') {
         choice = prompt("Invalid move. Please enter 'rock', 'paper', or 'scissors': ");
-        choice.toLowerCase()
+        choice = choice.toLowerCase()
     }
     return choice;
 }
